@@ -3,6 +3,6 @@
  */
 StockMarket.Router.map(function() {
     // put your routes here
-    this.resource('stockStateSummary');
+    this.resource('stockStateSummary', {path: '/'});
 
 });
