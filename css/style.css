@@ -3,6 +3,10 @@
     margin: 20px;
 }
 
+h1,h2,h3,h4,h5,h6 {
+    text-align: center;
+}
+
 .nav-pills {
     background: #101010;
 }
@@ -32,4 +36,8 @@
 
 .nav>li>a {
     padding: 5px 15px;
+}
+
+th, td {
+    text-align: center;
 }

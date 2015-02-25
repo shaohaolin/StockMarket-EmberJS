@@ -1,40 +1,45 @@
-<div class="container-fluid state-summary">
-    <div class="row">
+<div class="row">
+    <div class="container-fluid state-summary">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-pills state-summary-nav">
+                    <li class="state-summary-nav-title">{{#link-to 'stockStateSummary'}}Most Active by Volume{{/link-to}}</li>
+                    <li><a class="summary-item" href="#">Gainers</a></li>
+                    <li><a class="summary-item" href="#">Losers</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="stock-summary-table">
         <div class="col-md-12">
-            <ul class="nav nav-pills state-summary-nav">
-                <li class="state-summary-nav-title">{{#link-to 'stockStateSummary'}}Most Active by Volume{{/link-to}}</li>
-                <li><a class="summary-item" href="#">Gainers</a></li>
-                <li><a class="summary-item" href="#">Losers</a></li>
-            </ul>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Open Price</th>
+                    <th>Current Price</th>
+                    <th>Change</th>
+                    <th>Share Volume</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each company in model}}
+                    <tr>
+                        <td>{{#link-to 'symbol'}}{{company.companyName}}{{/link-to}}</td>
+                        <td>${{company.openPrice}}</td>
+                        <td>${{company.currentPrice}}</td>
+                        <td class="netChange">{{company.netChange}}%</td>
+                        <td>{{company.shareVolume}}</td>
+                        <td>
+                            <a href="#"><button class="summary-button">{{#link-to 'marketByOrder'}}Buy{{/link-to}}</button></a>
+                            <a href="#"><button class="summary-button">{{#link-to 'marketByPrice'}}Sell{{/link-to}}</button></a>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
-<div class="stock-summary-table">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Company</th>
-                <th>Open Price</th>
-                <th>Current Price</th>
-                <th>Change</th>
-                <th>Share Volume</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each company in model}}
-                <tr>
-                    <td><a {{bindAttr href="company.url"}}>{{company.companyName}}</a></td>
-                    <td>${{company.openPrice}}</td>
-                    <td>${{company.currentPrice}}</td>
-                    <td class="netChange">{{company.netChange}}%</td>
-                    <td>{{company.shareVolume}}</td>
-                    <td>
-                        <a href="#"><button class="summary-button">Buy</button></a>
-                        <a href="#"><button class="summary-button">Sell</button></a>
-                    </td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
-</div>
+{{outlet}}

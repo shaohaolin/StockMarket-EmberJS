@@ -3,6 +3,13 @@
  */
 StockMarket.Router.map(function() {
     // put your routes here
-    this.resource('stockStateSummary', {path: '/'});
+    this.resource('stockStateSummary', {path: '/'}, function (){
+        this.resource('marketByOrder', function (){
+            this.resource('marketByPrice', function(){
+                this.resource('symbol');
+            });
+        });
+
+    });
 
 });

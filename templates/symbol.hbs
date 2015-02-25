@@ -1,0 +1,7 @@
+<div class="col-md-2">
+    {{#each company in model}}
+        <a href="#">
+            <img {{bindAttr src="company.url"}} class="img-responsive"/>
+        </a>
+    {{/each}}
+</div>
