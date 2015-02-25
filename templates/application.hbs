@@ -1,0 +1,30 @@
+<div class="container-fluid text-center">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#">
+                    <img src="images/logo.jpg" class="img-responsive"/>
+                </a>
+            </div>
+            <div class="col-md-8">
+                <h1>SE3314B Computer Networks Application</h1>
+                <p class="lead">
+                    Stock Market Application
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid state-summary">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-pills state-summary-nav">
+                <li class="state-summary-nav-title">{{#link-to 'stockStateSummary'}}Most Active by Volume{{/link-to}}</li>
+                <li><a class="summary-item" href="#">Gainers</a></li>
+                <li><a class="summary-item" href="#">Losers</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{{outlet}}

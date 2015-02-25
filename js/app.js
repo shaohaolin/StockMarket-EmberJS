@@ -1,0 +1,1 @@
+StockMarket = Ember.Application.create();
