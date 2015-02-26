@@ -26,14 +26,14 @@
                 <tbody>
                 {{#each company in model}}
                     <tr>
-                        <td>{{#link-to 'symbol'}}{{company.companyName}}{{/link-to}}</td>
+                        <td>{{#link-to 'symbol' company.id}}{{company.companyName}}{{/link-to}}</td>
                         <td>${{company.openPrice}}</td>
                         <td>${{company.currentPrice}}</td>
                         <td class="netChange">{{company.netChange}}%</td>
                         <td>{{company.shareVolume}}</td>
                         <td>
-                            <a href="#"><button class="summary-button">{{#link-to 'placeBidOrder'}}Buy{{/link-to}}</button></a>
-                            <a href="#"><button class="summary-button">{{#link-to 'placeSellOrder'}}Sell{{/link-to}}</button></a>
+                            <a href="#"><button class="summary-button">{{#link-to 'placeBidOrder' company.id}}Buy{{/link-to}}</button></a>
+                            <a href="#"><button class="summary-button">{{#link-to 'placeSellOrder' company.id}}Sell{{/link-to}}</button></a>
                         </td>
                     </tr>
                 {{/each}}

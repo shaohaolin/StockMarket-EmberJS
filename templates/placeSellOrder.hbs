@@ -4,7 +4,7 @@
             <fieldset>
 
                 <!-- Form Name -->
-                <legend>Place Sell Order For CompanyName</legend>
+                <legend>Place Sell Order For {{model.companyName}}</legend>
 
                 <!-- Text input-->
                 <div class="form-group">
@@ -36,7 +36,8 @@
             </fieldset>
         </form>
     </div>
-    <div class="col-md-2 col-md-offset-1">
+    <aside class="sidebar col-md-2 col-md-offset-1">
+        <h2>Symbol</h2>
         {{outlet}}
-    </div>
+    </aside>
 </div>
