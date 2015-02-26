@@ -32,8 +32,8 @@
                         <td class="netChange">{{company.netChange}}%</td>
                         <td>{{company.shareVolume}}</td>
                         <td>
-                            <a href="#"><button class="summary-button">{{#link-to 'marketByOrder'}}Buy{{/link-to}}</button></a>
-                            <a href="#"><button class="summary-button">{{#link-to 'marketByPrice'}}Sell{{/link-to}}</button></a>
+                            <a href="#"><button class="summary-button">{{#link-to 'placeBidOrder'}}Buy{{/link-to}}</button></a>
+                            <a href="#"><button class="summary-button">{{#link-to 'placeSellOrder'}}Sell{{/link-to}}</button></a>
                         </td>
                     </tr>
                 {{/each}}

@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-2">
+        <form class="form-horizontal" id="sell-order-form">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Place Sell Order For CompanyName</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="bidPrice">Sell Price</label>
+                    <div class="col-md-6">
+                        <input id="bidPrice" name="bidPrice" type="text" placeholder="How much?" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="bidVolume">Number of Shares</label>
+                    <div class="col-md-6">
+                        <input id="bidVolume" name="bidVolume" type="text" placeholder="How many?" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+                <!-- Button (Double) -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="submitBtn"></label>
+                    <div class="col-md-8">
+                        <button id="submitBtn" name="submitBtn" class="btn btn-success">Sumbit</button>
+                        <button id="CancelBtn" name="CancelBtn" class="btn btn-danger">Cancel</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    <div class="col-md-2 col-md-offset-1">
+        {{outlet}}
+    </div>
+</div>

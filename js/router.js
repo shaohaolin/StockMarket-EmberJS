@@ -10,6 +10,9 @@ StockMarket.Router.map(function() {
             });
         });
 
+        this.resource('placeBidOrder');
+        this.resource('placeSellOrder');
+
     });
 
 });
