@@ -26,7 +26,7 @@
                 <tbody>
                 {{#each company in model}}
                     <tr>
-                        <td>{{#link-to 'symbol' company.id}}{{company.companyName}}{{/link-to}}</td>
+                        <td>{{#link-to 'marketByOrder' company.id}}{{company.companyName}}{{/link-to}}</td>
                         <td>${{company.openPrice}}</td>
                         <td>${{company.currentPrice}}</td>
                         <td class="netChange">{{company.netChange}}%</td>
@@ -43,3 +43,12 @@
     </div>
 </div>
 {{outlet}}
+<div class="contain-fluid site-footer">
+    <div class="row">
+        <div class="col-md-12">
+            <hr/>
+            <p> SHAOHAO LIN COPYRIGHT@2015 ALL RIGHTS RESERVED.</p>
+
+        </div>
+    </div>
+</div>
