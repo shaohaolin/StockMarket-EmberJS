@@ -18,7 +18,7 @@
                     <th>Company</th>
                     <th>Open Price</th>
                     <th>Current Price</th>
-                    <th>Change</th>
+                    <th colspan="3">Change</th>
                     <th>Share Volume</th>
                     <th></th>
                 </tr>
@@ -29,6 +29,8 @@
                         <td>{{#link-to 'marketByOrder' company.id}}{{company.companyName}}{{/link-to}}</td>
                         <td>${{company.openPrice}}</td>
                         <td>${{company.currentPrice}}</td>
+                        <td>{{company.value}}</td>
+                        <td><img {{bindAttr src="company.changeIcon"}}/></td>
                         <td class="netChange">{{company.netChange}}%</td>
                         <td>{{company.shareVolume}}</td>
                         <td>

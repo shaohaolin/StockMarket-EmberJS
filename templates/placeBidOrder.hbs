@@ -11,8 +11,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="bidPrice">Purchase Price</label>
                         <div class="col-md-6">
-                            <input id="bidPrice" name="bidPrice" type="text" placeholder="How much?" class="form-control input-md" required="">
-
+                            {{view Ember.TextField valueBinding="bidPrice" id="bidPrice" name="bidPrice" type="number" placeholder="How much?" class="form-control input-md" required=""}}
                         </div>
                     </div>
 
@@ -20,8 +19,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="bidVolume">Number of Shares</label>
                         <div class="col-md-6">
-                            <input id="bidVolume" name="bidVolume" type="text" placeholder="How many?" class="form-control input-md" required="">
-
+                            {{view Ember.TextField valueBinding="bidVolume" id="bidVolume" name="bidVolume" type="number" placeholder="How many?" class="form-control input-md" required=""}}
                         </div>
                     </div>
 
@@ -29,8 +27,8 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="submitBtn"></label>
                         <div class="col-md-8">
-                            <button id="submitBtn" name="submitBtn" class="btn btn-success">Sumbit</button>
-                            <button id="CancelBtn" name="CancelBtn" class="btn btn-danger">Cancel</button>
+                            <button id="submitBtn" name="submitBtn" class="btn btn-success" {{action "submitOrder" model}}>Sumbit</button>
+                            <button id="CancelBtn" name="CancelBtn" class="btn btn-danger" {{action "abortion"}}>Cancel</button>
                         </div>
                     </div>
                 </fieldset>

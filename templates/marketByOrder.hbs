@@ -15,6 +15,14 @@
                             <th>Volume</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr>
+                            {{#each buyOrder in model.buyOrders}}
+                                <th>{{buyOrder.bidVolume}}</th>
+                                <th>${{buyOrder.bidPrice}}</th>
+                            {{/each}}
+                        </tr>
+                    </tbody>
                 </table>
         </div>
         {{partial "marketByPrice"}}
