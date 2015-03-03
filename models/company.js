@@ -10,6 +10,7 @@ StockMarket.Company = DS.Model.extend({
     shareVolume: DS.attr('number'),
     changeIcon: DS.attr(),
     buyOrders: DS.hasMany('buyOrder'),
+    sellOrders: DS.hasMany('sellOrder'),
     url: DS.attr(),
 
     value: function (){

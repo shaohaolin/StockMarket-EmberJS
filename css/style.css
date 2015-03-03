@@ -65,3 +65,13 @@ hr {
     color: #f5f5f5;
     text-align: center;
 }
+
+.market-title-bar {
+    background-color: #D4D4D4;
+    font-size: 24px;
+    letter-spacing: .2em;
+    text-align: center;
+    text-transform: none;
+    font-weight: 100;
+    margin-bottom: 0;
+}
