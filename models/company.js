@@ -14,12 +14,16 @@ StockMarket.Company = DS.Model.extend({
     url: DS.attr(),
 
     value: function (){
+
+        if (this.get('currentPrice') == 0 ) {return 0;}
         var changeValue;
         changeValue = this.get('currentPrice') - this.get('openPrice');
         return changeValue.toFixed(2);
     }.property('currentPrice','openPrice'),
 
     netChange: function() {
+
+        if (this.get('currentPrice') == 0 ) {return 0;}
         var changePercentage;
         changePercentage = (this.get('currentPrice') - this.get('openPrice')) / (this.get('currentPrice')) * 100;
         return changePercentage.toFixed(2);

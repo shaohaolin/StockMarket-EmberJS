@@ -3,6 +3,7 @@
  */
 StockMarket.PlaceBidOrderController = Ember.Controller.extend({
 
+
     actions: {
         submitOrder: function (model) {
 
@@ -18,8 +19,27 @@ StockMarket.PlaceBidOrderController = Ember.Controller.extend({
                    company: model
                 });
 
+                // manipulate company model data based on the new buyOrder model data
+                model.set('currentPrice', buyPrice);
+                model.set('shareVolume', buyVolume);
+
+                var currentValue = model.get('value');
+
+                if (currentValue == 0) {
+                    model.set('changeIcon', './images/noChange.png');
+                }
+                else if(currentValue > 0) {
+                    model.set('changeIcon', './images/up.png');
+                }
+                    else {
+                    model.set('changeIcon', './images/down.png');
+                }
+
+                // clear the input form
                 this.set('bidPrice', '');
                 this.set('bidVolume', '');
+
+                //redirect to marketByOrder to select company ID
                 this.transitionToRoute('marketByOrder', model.id);
             }
         },
