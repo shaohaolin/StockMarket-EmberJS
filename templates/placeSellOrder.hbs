@@ -26,8 +26,11 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="submitBtn"></label>
                     <div class="col-md-8">
-                        <button id="submitBtn" name="submitBtn" class="btn btn-success" {{action "submitSellOrder" model}}>Sumbit</button>
-                        <button id="CancelBtn" name="CancelBtn" class="btn btn-danger" {{action "abortionSellOrder"}}>Cancel</button>
+                        <!-- Submit button with label -->
+                        <button  id="submitBtn" name="submitBtn" type="button" class="btn btn-labeled btn-success" {{action "submitSellOrder" model}}><span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Submit</button>
+
+                        <!-- Danger button with label -->
+                        <button id="CancelBtn" name="CancelBtn" type="button" class="btn btn-labeled btn-danger" {{action "abortSellOrder"}}><span class="btn-label"><i class="glyphicon glyphicon-remove"></i></span>Cancel</button>
                     </div>
                 </div>
 

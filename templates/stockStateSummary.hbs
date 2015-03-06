@@ -12,7 +12,7 @@
     </div>
     <div class="stock-summary-table">
         <div class="col-md-12">
-            <table class="table table-striped">
+            <table class="table table-striped table-hover">
                 <thead>
                 <tr>
                     <th>Company</th>
@@ -23,8 +23,8 @@
                     <th></th>
                 </tr>
                 </thead>
-                <tbody>
-                {{#each company in model}}
+                <tbody class="rowlink">
+                {{#each company in sortedCompany}}
                     <tr>
                         <td>{{#link-to 'marketByOrder' company.id}}{{company.companyName}}{{/link-to}}</td>
                         <td>${{company.openPrice}}</td>

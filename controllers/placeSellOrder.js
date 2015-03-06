@@ -24,7 +24,7 @@ StockMarket.PlaceSellOrderController = Ember.Controller.extend({
             }
         },
 
-        abortionSellOrder: function () {
+        abortSellOrder: function () {
             this.set('sellPrice', '');
             this.set('sellVolume', '');
             this.transitionToRoute('stockStateSummary');

@@ -44,7 +44,7 @@ StockMarket.PlaceBidOrderController = Ember.Controller.extend({
             }
         },
 
-        abortion: function () {
+        abortBuyOrder: function () {
             this.set('bidPrice', ' ');
             this.set('bidVolume', ' ');
             this.transitionToRoute('stockStateSummary');
