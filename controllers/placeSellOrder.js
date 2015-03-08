@@ -17,7 +17,7 @@ StockMarket.PlaceSellOrderController = Ember.Controller.extend({
                 for (var i = 0; i < model.get('buyOrders').content.length; i++) {
                     var temBuyPrice = parseFloat(listOfBuy[i].get('bidPrice'));
                     console.log("Buy Price:" + temBuyPrice);
-                    if (parseFloat(sellPrice) <= parseFloat(temBuyPrice)) {
+                    if (parseFloat(temBuyPrice) >= parseFloat(this.get('sellPrice'))) {
                         var temBuyVolume = listOfBuy[i].get('bidVolume');
                         console.log("Buy Volume" + temBuyVolume);
 
@@ -30,13 +30,12 @@ StockMarket.PlaceSellOrderController = Ember.Controller.extend({
                         }
 
                         //sellVolume is more than bidVolume
-                        if (parseInt(this.get('sellVolume')) > praseInt(temBuyVolume)) {
+                        if (parseInt(this.get('sellVolume')) > parseInt(temBuyVolume)) {
                             volumeSold = parseInt(volumeSold) + parseInt(temBuyVolume);
                             sellVolume = parseInt(this.get('sellVolume')) - parseInt(temBuyVolume);
                             this.set('sellVolume', sellVolume);
                             model.set('currentPrice', temBuyPrice);
                             model.get('buyOrders').content[match_index].destroyRecord();
-                            model.save();
                             i--;
                         }
 
@@ -47,7 +46,6 @@ StockMarket.PlaceSellOrderController = Ember.Controller.extend({
                             this.set('sellVolume', sellVolume);
                             model.set('currentPrice', temBuyPrice);
                             model.get('buyOrders').content[match_index].destroyRecord();
-                            model.save();
                             break;
                         }
 
@@ -76,6 +74,18 @@ StockMarket.PlaceSellOrderController = Ember.Controller.extend({
                 // manipulate company model data based on the new sellOrder model data
                 if (volumeSold > 0) {
                     model.set('shareVolume', parseInt(model.get('shareVolume')+ volumeSold));
+                }
+
+                var currentValue = model.get('value');
+
+                if (currentValue == 0) {
+                    model.set('changeIcon', './images/noChange.png');
+                }
+                else if(currentValue > 0) {
+                    model.set('changeIcon', './images/up.png');
+                }
+                else {
+                    model.set('changeIcon', './images/down.png');
                 }
 
                 this.set('sellPrice', '');

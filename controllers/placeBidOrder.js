@@ -17,7 +17,7 @@ StockMarket.PlaceBidOrderController = Ember.Controller.extend({
                     for (var i = 0; i < model.get('sellOrders').content.length; i++) {
                         var temSellPrice = parseFloat(listOfSell[i].get('sellPrice'));
                         console.log("Sell Price:" + temSellPrice);
-                        if (parseFloat(buyPrice) >= parseFloat(temSellPrice)) {
+                        if (parseFloat(this.get('bidPrice')) >= parseFloat(temSellPrice)) {
                             var temSellVolume = listOfSell[i].get('sellVolume');
                             console.log("Sell Volume" + temSellVolume);
 
@@ -35,7 +35,6 @@ StockMarket.PlaceBidOrderController = Ember.Controller.extend({
                                 buyVolume = parseInt(this.get('bidVolume')) - parseInt(temSellVolume);
                                 this.set('bidVolume', buyVolume);
                                 model.get('sellOrders').content[match_index].deleteRecord();
-                                model.save();
                                 i--;
                             }
 
@@ -45,7 +44,6 @@ StockMarket.PlaceBidOrderController = Ember.Controller.extend({
                                 buyVolume = 0;
                                 this.set('bidVolume', buyVolume);
                                 model.get('sellOrders').content[match_index].deleteRecord();
-                                model.save();
                                 break;
                             }
 
