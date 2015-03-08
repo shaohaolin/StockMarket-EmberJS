@@ -8,4 +8,12 @@ StockMarket.StockStateSummaryController = Ember.ArrayController.extend({
     sortProperties: ['companyName:asc'],
     sortedCompany: Ember.computed.sort('model','sortProperties')
 
+    /*
+    sortBuyOrderPrice : ['bidPrice:asc'],
+    sortBuyOrders : Ember.computed.sort('model.buyOrders', 'sortBuyOrderPrice'),
+
+    sortSellOrderPrice : ['sellPrice:asc'],
+    sortSellOrders : Ember.computed.sort('model.sellOrders', 'sortSellOrderPrice')
+    */
+
 });
