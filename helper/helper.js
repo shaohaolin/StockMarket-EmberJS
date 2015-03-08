@@ -15,9 +15,9 @@ Ember.Handlebars.helper('marketByOrderView', function (sortedBuyOrders, sortedSe
             if (i < sortedBuyOrders.length) {
 
                 var temBidVolume = sortedBuyOrders[i].get('bidVolume');
-                console.log(temBidVolume);
+                //console.log(temBidVolume);
                 var temBidPrice = sortedBuyOrders[i].get('bidPrice');
-                console.log(temBidPrice);
+                //console.log(temBidPrice);
 
                 tableView = tableView + "<tr> <th>" + temBidVolume +"</th> <th>" + temBidPrice + "</th>";
             }
@@ -27,9 +27,9 @@ Ember.Handlebars.helper('marketByOrderView', function (sortedBuyOrders, sortedSe
 
             if (i < sortedSellOrders.length) {
                 var temSellPrice = sortedSellOrders[i].get('sellPrice');
-                console.log(temSellPrice);
+                //console.log(temSellPrice);
                 var temSellVolume = sortedSellOrders[i].get('sellVolume');
-                console.log(temBidVolume);
+                //console.log(temBidVolume);
 
                 tableView = tableView + "<th>" + temSellPrice + "</th> <th>" + temSellVolume +"</th> </tr>";
             }
