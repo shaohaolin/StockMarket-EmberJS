@@ -8,24 +8,33 @@ StockMarket.PlaceBidOrderController = Ember.Controller.extend({
 
             var buyPrice = this.get('bidPrice');
             var buyVolume = this.get('bidVolume');
-            var listOfSell = model.get('sellOrders');
+            var listOfSell = model.get('sellOrders').sortBy('sellPrice');
             var volumeSold = 0;
+            var match_index = 0;
 
             if (buyPrice & buyVolume) {
 
                     for (var i = 0; i < model.get('sellOrders').content.length; i++) {
-                        var temSellPrice = parseFloat(listOfSell.content[i].get('sellPrice'));
+                        var temSellPrice = parseFloat(listOfSell[i].get('sellPrice'));
                         console.log("Sell Price:" + temSellPrice);
-                        if (parseFloat(buyPrice) >= temSellPrice) {
-                            var temSellVolume = listOfSell.content[i].get('sellVolume');
+                        if (parseFloat(buyPrice) >= parseFloat(temSellPrice)) {
+                            var temSellVolume = listOfSell[i].get('sellVolume');
                             console.log("Sell Volume" + temSellVolume);
 
+                            var match_id = listOfSell[i].get('id');
+                            for (var j = 0; j < model.get('sellOrders').content.length; j++) {
+                                if (match_id == model.get('sellOrders').content[i].get('id')){
+                                    match_index = j;
+                                    break;
+                                }
+                            }
+
                             //buyVolume is more than sellVolume
-                            if (parseInt(this.get('bidVolume')) > temSellVolume) {
+                            if (parseInt(this.get('bidVolume')) > parseInt(temSellVolume)) {
                                 volumeSold = parseInt(volumeSold) + parseInt(temSellVolume);
                                 buyVolume = parseInt(this.get('bidVolume')) - parseInt(temSellVolume);
                                 this.set('bidVolume', buyVolume);
-                                model.get('sellOrders').content[i].deleteRecord();
+                                model.get('sellOrders').content[match_index].deleteRecord();
                                 model.save();
                                 i--;
                             }
@@ -35,7 +44,7 @@ StockMarket.PlaceBidOrderController = Ember.Controller.extend({
                                 volumeSold = parseInt(volumeSold) + parseInt(temSellVolume);
                                 buyVolume = 0;
                                 this.set('bidVolume', buyVolume);
-                                model.get('sellOrders').content[i].deleteRecord();
+                                model.get('sellOrders').content[match_index].deleteRecord();
                                 model.save();
                                 break;
                             }
@@ -44,7 +53,7 @@ StockMarket.PlaceBidOrderController = Ember.Controller.extend({
                             else if (parseInt(buyVolume) < parseInt(temSellVolume)) {
                                 volumeSold = parseInt(volumeSold) + parseInt(temSellVolume);
                                 buyVolume = 0;
-                                model.get('sellOrders').objectAt(i).set('sellVolume', parseInt(temSellVolume) - parseInt(buyVolume));
+                                model.get('sellOrders').objectAt(match_index).set('sellVolume', parseInt(temSellVolume) - parseInt(buyVolume));
                                 model.set('bidVolume', buyVolume);
                                 break;
                             }

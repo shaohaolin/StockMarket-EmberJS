@@ -4,7 +4,7 @@
 StockMarket.MarketByOrderController = Ember.ArrayController.extend({
 
 
-    sortProperties: ['bidPrice:asc'],
+    sortProperties: ['bidPrice:desc'],
     sortedBuyOrders: Ember.computed.sort('model.buyOrders', 'sortProperties'),
 
     sortSellProperties: ['sellPrice:asc'],
