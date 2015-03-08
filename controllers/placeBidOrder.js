@@ -64,8 +64,10 @@ StockMarket.PlaceBidOrderController = Ember.Controller.extend({
 
                 // manipulate company model data based on the new buyOrder model data
                 if (volumeSold > 0) {
+                    console.log("current Price:"+ buyPrice);
+                    console.log("share volume:"+ parseInt(model.get('shareVolume')+ volumeSold));
                     model.set('currentPrice', buyPrice);
-                    model.set('shareVolume', parseInt(model.get('shareVolume')+ buyVolume));
+                    model.set('shareVolume', parseInt(model.get('shareVolume')+ volumeSold));
                 }
 
                 var currentValue = model.get('value');
