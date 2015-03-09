@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-pills state-summary-nav">
-                    <li class="state-summary-nav-title">{{#link-to 'stockStateSummary'}}Most Active by Volume{{/link-to}}</li>
-                    <li><a class="summary-item" href="#">Gainers</a></li>
-                    <li><a class="summary-item" href="#">Losers</a></li>
+                    <li class="state-summary-nav-title" {{action 'filterFunction' 'none'}}><a>Most Active by Volume</a></li>
+                    <li {{action 'filterFunction' 'increase'}}><a class="summary-item">Gainers</a></li>
+                    <li  {{action 'filterFunction' 'decrease'}}><a class="summary-item">Losers</a></li>
                 </ul>
             </div>
         </div>
