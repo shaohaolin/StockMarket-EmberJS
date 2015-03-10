@@ -7,7 +7,6 @@ StockMarket.StockStateSummaryController = Ember.ArrayController.extend({
 
     actions: {
         filterFunction: function(choice){
-            alert(choice);
             this.set("theFilter", choice);
         }
     },
